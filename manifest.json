@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Vehicle Detection and Tracking",
+  "description": "A minimal chrome extension to detect and track vehicles from a video stream",
+  "version": "0.0.1",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "run_at": "document_end",
+      "js": [
+        "foreground/tracker.js",
+        "foreground/ml5.js",
+        "foreground/index.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/index.html"
+  },
+  "permissions": ["activeTab"]
+}
